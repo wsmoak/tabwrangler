@@ -58,8 +58,8 @@ define(['tabmanager'], function(tabmanager) {
    * @see Settings.set
    */
   Settings.setminutesInactive = function(value) {
-    if ( isNaN(parseInt(value, 10)) || parseInt(value, 10) <= 0 || parseInt(value, 10) > 720 ){
-      throw Error("Minutes Inactive must be greater than 0 and less than 720");
+    if ( isNaN(parseInt(value, 10)) || parseInt(value, 10) <= 0 || parseInt(value, 10) > 1440 ){
+      throw Error("Minutes Inactive must be greater than 0 and less than 1440");
     }
     // Reset the tabTimes since we changed the setting
     tabmanager.tabTimes = {};
@@ -114,7 +114,7 @@ define(['tabmanager'], function(tabmanager) {
     if (typeof(value) != 'object') {
       throw new Error('Whitelist should be an array, ' + typeof(value) + ' given');
     }
-    
+
     Settings.setValue('whitelist', value);
   };
 
